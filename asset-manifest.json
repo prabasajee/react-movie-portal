@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-movie-portal/static/css/main.f855e6bc.css",
+    "main.js": "/react-movie-portal/static/js/main.48b401be.js",
+    "static/js/453.ecd6fed4.chunk.js": "/react-movie-portal/static/js/453.ecd6fed4.chunk.js",
+    "index.html": "/react-movie-portal/index.html",
+    "main.f855e6bc.css.map": "/react-movie-portal/static/css/main.f855e6bc.css.map",
+    "main.48b401be.js.map": "/react-movie-portal/static/js/main.48b401be.js.map",
+    "453.ecd6fed4.chunk.js.map": "/react-movie-portal/static/js/453.ecd6fed4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.48b401be.js"
+  ]
+}
