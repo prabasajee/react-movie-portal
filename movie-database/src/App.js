@@ -47,7 +47,7 @@ function App() {
         setLoading(false);
       })();
     }
-  }, [showFavorites, search]);
+  }, [showFavorites, search, movies.length]);
 
   // Show trending movies on home page
   useEffect(() => {
