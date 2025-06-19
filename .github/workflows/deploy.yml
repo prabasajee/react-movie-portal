@@ -19,12 +19,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: movie-database
 
       - name: Build project
         run: npm run build
+        working-directory: movie-database
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./movie-database/build
