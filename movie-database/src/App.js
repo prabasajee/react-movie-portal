@@ -7,7 +7,7 @@ import MovieDetails from './components/MovieDetails';
 import Footer from './components/Footer';
 import './App.css';
 
-const API_KEY = 'demo'; // Replace with your OMDb API key
+const API_KEY = 'your_real_api_key';
 
 function App() {
   const [search, setSearch] = useState('');
