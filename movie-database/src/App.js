@@ -7,7 +7,8 @@ import MovieDetails from './components/MovieDetails';
 import Footer from './components/Footer';
 import './App.css';
 
-const API_KEY = 'your_real_api_key';
+const API_KEY = '8daf1fc0';
+const DEFAULT_MOVIES = ['Batman', 'Avengers', 'Inception', 'Titanic', 'Matrix'];
 
 function App() {
   const [search, setSearch] = useState('');
@@ -23,6 +24,25 @@ function App() {
     const favs = localStorage.getItem('favorites');
     if (favs) setFavorites(JSON.parse(favs));
   }, []);
+
+  // Show some movies on home page by default
+  useEffect(() => {
+    if (!showFavorites && !search && movies.length === 0) {
+      (async () => {
+        setLoading(true);
+        let all = [];
+        for (let title of DEFAULT_MOVIES) {
+          const res = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(title)}`);
+          const data = await res.json();
+          if (data.Response === 'True') {
+            all = all.concat(data.Search.slice(0, 2)); // show 2 from each
+          }
+        }
+        setMovies(all);
+        setLoading(false);
+      })();
+    }
+  }, [showFavorites, search]);
 
   // Save favorites to localStorage when they change
   useEffect(() => {
