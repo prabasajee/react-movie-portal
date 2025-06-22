@@ -69,10 +69,8 @@ function App() {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
-  // Filter movies by genre
-  const filteredMovies = genre
-    ? movies.filter((movie) => movie.Genre && movie.Genre.includes(genre))
-    : movies;
+  // Filter movies by genre (disabled because OMDb search results do not include Genre)
+  const filteredMovies = movies;
 
   const handleSearch = async (e) => {
     setSearch(e.target.value);
@@ -138,6 +136,7 @@ function App() {
       <Header />
       <NavBar onHome={handleShowHome} onFavorites={handleShowFavorites} showFavorites={showFavorites} />
       {!showFavorites && <SearchBar value={search} onChange={handleSearch} />}
+      {/* GenreFilter is shown but does not filter results due to OMDb API limitations */}
       {!showFavorites && <GenreFilter value={genre} onChange={e => setGenre(e.target.value)} />}
       {!showFavorites && !search && !selectedMovie && trending.length > 0 && (
         <TrendingSection movies={trending} onMovieClick={handleMovieClick} />
